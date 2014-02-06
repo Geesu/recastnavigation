@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>canFly</key>
+	<false/>
+	<key>factionId</key>
+	<integer>0</integer>
+	<key>randomVariance</key>
+	<integer>50</integer>
+	<key>BlacklistedAreas</key>
+	<array>
+		<dict>
+			<key>continentId</key>
+			<integer>1234</integer>
+			<key>x</key>
+			<real>343.2</real>
+			<key>y</key>
+			<real>72.01000000000001</real>
+			<key>z</key>
+			<real>8900.01</real>
+			<key>radius</key>
+			<real>35.1</real>
+		</dict>
+	</array>
+	<key>navMeshPath</key>
+	<string>mesh</string>
+	<key>objMeshPath</key>
+	<string>obj</string>
+</dict>
+</plist>

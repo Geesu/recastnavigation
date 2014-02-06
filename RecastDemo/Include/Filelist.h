@@ -31,5 +31,6 @@ struct FileList
 };
 
 void scanDirectory(const char* path, const char* ext, FileList& list);
+void scanFilesInDirectory(const char* path, FileList& list);
 
 #endif // FILELIST_H

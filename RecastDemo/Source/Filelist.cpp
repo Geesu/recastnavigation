@@ -98,3 +98,54 @@ void scanDirectory(const char* path, const char* ext, FileList& list)
 	if (list.size > 1)
 		qsort(list.files, list.size, sizeof(char*), cmp);
 }
+
+
+void scanFilesInDirectory(const char* path, FileList& list)
+{
+    fileListClear(list);
+    
+#ifdef WIN32
+	// TODO: implement under Win32 if needed
+	_finddata_t dir;
+	char pathWithExt[260];
+	long fh;
+	strcpy(pathWithExt, path);
+	strcat(pathWithExt, "/*");
+	//strcat(pathWithExt, ext);
+	fh = _findfirst(pathWithExt, &dir);
+	if (fh == -1L)
+		return;
+	do
+	{
+		fileListAdd(list, dir.name);
+	}
+	while (_findnext(fh, &dir) == 0);
+	_findclose(fh);
+#else
+    dirent* current = 0;
+    DIR* dp = opendir(path);
+    if (!dp)
+        return;
+    
+    while ((current = readdir(dp)) != 0)
+    {
+        int len = strlen(current->d_name);
+        if (len == 1)
+        {
+            if (strcmp(current->d_name, ".") == 0) {
+                continue;
+            }
+        } else if (len == 2) {
+            if (strcmp(current->d_name, "..") == 0) {
+                continue;
+            }
+        }
+        fileListAdd(list, current->d_name);
+    }
+    closedir(dp);
+#endif
+    
+    if (list.size > 1)
+        qsort(list.files, (size_t)list.size, sizeof(char*), cmp);
+}
+

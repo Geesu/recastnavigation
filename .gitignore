@@ -8,6 +8,8 @@
 *.pdb
 *.so
 
+lib/boost/src/boost
+
 ## Linux exes have no extension
 RecastDemo/Bin/RecastDemo
 

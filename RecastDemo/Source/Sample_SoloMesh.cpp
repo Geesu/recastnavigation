@@ -37,6 +37,9 @@
 #include "OffMeshConnectionTool.h"
 #include "ConvexVolumeTool.h"
 #include "CrowdTool.h"
+#include "FlyPathing.h"
+#include "FlyUtils.h"
+
 
 #ifdef WIN32
 #	define snprintf _snprintf
